@@ -1,9 +1,10 @@
 import { authMiddleware } from './authMiddleware';
-//import { errorMiddleware } from './errorMiddleware';
+import { errorHandlingMiddleware } from './errorHandlingMiddleware';
+
 // Import more middleware functions as needed
 
 export default {
   authMiddleware,
-  //errorMiddleware,
+  errorHandlingMiddleware,
   // Export more middleware functions as needed
 };

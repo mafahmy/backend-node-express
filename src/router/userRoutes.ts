@@ -12,9 +12,9 @@ const userController = new UserController(userService);
 router.get('/', userController.getAllUsers.bind(userController));
 router.post('/create-user', userController.createUser.bind(userController));
 router.put('/update-user', userController.updateUserById.bind(userController));
-router.get('/get-user', userController.getUserById.bind(userController));
+router.post('/get-user', userController.getUserById.bind(userController));
 router.delete(
-  '/delete-uder',
+  '/delete-user/:id',
   userController.deleteUserById.bind(userController)
 );
 

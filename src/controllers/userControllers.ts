@@ -41,7 +41,7 @@ export default class UserController {
    */
   async createUser(req: Request, res: Response) {
     try {
-      const potentialUser: User = req.body.potentialUser;
+      const potentialUser: User = req.body;
       await this.userService.createUser(potentialUser);
       res.json('User created');
     } catch (error) {
@@ -60,7 +60,9 @@ export default class UserController {
    */
   async getUserById(req: Request, res: Response) {
     try {
-      const id = req.body.id;
+      console.log(req.body);
+      const id: string = req.body.id;
+      console.log(req.body);
       const foundedUser = await this.userService.getUserById(id);
       res.json(foundedUser);
     } catch (error) {
@@ -81,6 +83,7 @@ export default class UserController {
     try {
       const { id, updatedUser }: { id: string; updatedUser: User } = req.body;
       await this.userService.updateUserById(id, updatedUser);
+      res.send({ message: 'User updated' });
     } catch (error) {
       console.error(error);
       res.status(500).send({
@@ -97,8 +100,10 @@ export default class UserController {
    */
   async deleteUserById(req: Request, res: Response) {
     try {
-      const id: string = req.body.id;
+      console.log(req.params.id)
+      const id: string = req.params.id
       await this.userService.deleteUserById(id);
+      res.send({ message: 'USER DELETED' });
     } catch (error) {
       console.error(error);
       res.status(500).send({

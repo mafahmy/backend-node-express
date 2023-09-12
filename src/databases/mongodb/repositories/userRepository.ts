@@ -27,7 +27,7 @@ export class UserRepository {
 
   async getById(id: string) {
     try {
-      return await this.model.findById(id);
+      return await this.model.findOne({ id: id }).lean();
     } catch (error) {
       console.error(error);
       throw new Error(

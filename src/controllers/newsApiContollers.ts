@@ -6,9 +6,7 @@ import { getApiNews } from '../helpers/helper';
 export const fetchApiNewsController = async (req: Request, res: Response) => {
   try {
     const news = await getApiNews(indexConfig.googleNewsApiConfig.url);
-    res.status(200).send({
-      news: news,
-    });
+    res.status(200).send(news);
   } catch (error) {
     res.status(500).send({
       message: `An error in the news controller occured while getting news from api ${error}`,

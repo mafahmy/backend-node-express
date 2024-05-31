@@ -3,7 +3,7 @@ import cors from 'cors';
 import config from './config/indexConfig';
 import middleware from './middleware';
 import routes from './router/index';
-import { connectMongoDB } from './databases/mongodb/dbConnect';
+
 
 const port = config.appConfig.port;
 const app = express();
@@ -19,7 +19,6 @@ const appStart = async () => {
     app.listen(port, () => {
       console.log(`🚀🚀🚀 The app is running at http://localhost:${port}`);
     });
-    // await connectMongoDB();
   } catch (error) {
     console.log(`Error ocurred while trying to run the server\n${error}`);
   }

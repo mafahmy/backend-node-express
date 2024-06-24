@@ -15,9 +15,9 @@ datasource db {
 }
 model OneNews {
   id Int @id @default(autoincrement())
-  newsId String @unique
-  language  String? @default("english")
-  title String
+  newsId String @unique @default(uuid())
+  language  String @default("english")
+  title String @unique
   url String @default("")
   description String
   content String

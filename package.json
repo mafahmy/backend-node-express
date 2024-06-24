@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"tsc --watch\" \"nodemon build/index.js\"",
-    "seed-news": "node build/data/seedNews.js "
+    "seed-news": "node build/data/seedNews.js",
+    "feed-google-news": "node build/scripts/feedGoogleNewsToDb.js"
   },
   "keywords": [],
   "author": "",
